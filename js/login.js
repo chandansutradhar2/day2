@@ -3,9 +3,22 @@ credential = {
   password: "",
 };
 
+function validateEmail() {
+  let regex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (!regex.test(document.getElementById("email").value)) {
+    document.getElementById("err_email").style.display = "inline";
+    document.getElementById("err_email").innerHTML = "Invalid Email Id";
+  } else {
+    document.getElementById("err_email").style.display = "none";
+  }
+}
+
+function validatePassword() {}
+
 function validate(elementId, span) {
   let val = document.getElementById(elementId).value;
-  console.log(document.getElementById("login"));
   if (val.length <= 0) {
     document.getElementById(span).style.display = "inline";
     document.getElementById("login").disabled = true;
