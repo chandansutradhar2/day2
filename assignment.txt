@@ -1,0 +1,24 @@
+Assignment for Day 2
+
+1. regexp for evaluating password based on below condition
+
+Passw0rd // incorrect
+Passw0rd! //correct
+Passw0rd@123 //correct
+Pa0d@ //incorrect 
+
+length - min 6 
+one cap character
+one numeric character
+one special character
+
+2. input box radius to be highlighted in red in case of error
+
+3. add an eye icon with password input box
+
+4. mask/unmask password on toggle of eye icon. 
+
+5. also toggle eye icon
+
+
+
