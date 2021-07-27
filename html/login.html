@@ -14,11 +14,15 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   </head>
   <body class="container">
     <h1>Login here!</h1>
-    <div class="login-dialog shadow p-3 mb-5 bg-body rounded">
+    <div class="animate__animated animate__backInDown">
+         <div class="login-dialog shadow p-3 mb-5 bg-body rounded animate__backInDown">
       <div class="form-floating mb-3">
         <input
           onblur="validate('email','err_email')"
@@ -50,6 +54,7 @@
       >
         Login
       </button>
+    </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
