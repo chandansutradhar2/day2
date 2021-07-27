@@ -1,0 +1,16 @@
+.container {
+  margin: 20px;
+}
+
+.login-dialog {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: fit-content;
+}
+
+.error{
+color:red;
+display: none;
+}

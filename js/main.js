@@ -110,10 +110,31 @@ function showTimer() {
   }, 10000);
 }
 
+function objectDemo() {
+  const car = {
+    type: "hatchback",
+    name: "DeZire",
+    maxSpeed: 120,
+    start() {
+      //method..not function
+      console.log("car started");
+    },
+    stop() {
+      console.log("car stopped");
+    },
+  };
+  console.log(car.name);
+  console.log(car.type);
+  console.log(car.maxSpeed);
+  car.start();
+  car.stop();
+}
+
 //part 2: invocation
-generateCar('red'); //pass parameter while invocation.
-showTimer();
+//generateCar('red'); //pass parameter while invocation.
+//showTimer();
 //dateType();
 //arrayWork();
 //constDemo();
 //checkOperator();
+objectDemo();
