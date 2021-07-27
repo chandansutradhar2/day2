@@ -12,13 +12,20 @@ one cap character
 one numeric character
 one special character
 
-2. input box radius to be highlighted in red in case of error
+2. input box radius to be highlighted in red in case of error (use bootstrap class for this)
 
 3. add an eye icon with password input box
 
 4. mask/unmask password on toggle of eye icon. 
 
 5. also toggle eye icon
+
+
+reference
+https://getbootstrap.com/docs/5.0/forms/input-group/#basic-example
+
+https://ionic.io/ionicons/v4/usage#md-send
+
 
 
 

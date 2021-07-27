@@ -31,7 +31,7 @@
       <div
         class="login-dialog shadow p-3 mb-5 bg-body rounded animate__backInDown"
       >
-        <div class="input-group mb-6">
+        <div class="input-group mb-6  has-validation">
           <span class="input-group-text" id="basic-addon1">
             <!-- <i class="bi bi-envelope"></i> -->
             <i class="icon ion-md-send"></i>
@@ -45,9 +45,9 @@
             id="email"
             placeholder="name@example.com"
           />
+<span class="error invalid-feedback" id="err_email">Email cannot be left blank</span>
+        
         </div>
-
-        <span class="error" id="err_email">Email cannot be left blank</span>
         <div class="form-floating">
           <input
             onblur="validate('password','err_password')"
