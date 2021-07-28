@@ -4,6 +4,8 @@ credential = {
 };
 
 function validateEmail() {
+  Math.min(1, 2, 3, 4, 5, 7, 9);
+
   let regex =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -33,8 +35,40 @@ function login() {
   credential.password = document.getElementById("password").value;
 
   console.log(credential);
-  let user = mockAPIRequest(credential);
+  let user = makeAPIRequest();
   console.log(user);
+}
+
+function makeAPIRequest() {
+  var options = {
+    hostname: "https://hansenacademy.myabsorb.com",
+    path: "/api/Rest/v1/Authenticate",
+    method: "POST",
+    body: {
+      UserName: credential.email,
+      Password: credential.password,
+      privateKey: "c05e8e12-eb94-4766-80d4-1c59440d1072",
+    },
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  var req = https.request(options, (res) => {
+    console.log("statusCode:", res.statusCode);
+    console.log("headers:", res.headers);
+
+    res.on("data", (d) => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on("error", (e) => {
+    console.error(e);
+  });
+
+  req.write(postData);
+  req.end();
 }
 
 function mockAPIRequest(credentials) {
