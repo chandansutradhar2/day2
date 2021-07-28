@@ -1,6 +1,6 @@
 class Car {
   name: string;
-  maxSpeed: number;
+  maxSpeed:number;
   occupancy: number;
   torque: number;
 
@@ -16,15 +16,15 @@ class Car {
     this.torque = _torque;
   }
 
-  start() {
+  start():   void {
     console.log(`${this.name} started...`);
   }
 
-  stop() {
+  stop():   void {
     console.log(`${this.name} stopped...`);
   }
 
-  accelerate() {
+  accelerate():   void {
     console.log(`${this.name} accelerating to top speed of ${this.maxSpeed}`);
   }
 }
@@ -34,4 +34,5 @@ function onClick() {
   const carObj = new Car("Tata Nexon", 180, 5, 900);
 
   carObj.start();
+  carObj.maxSpeed = 399;
 }
