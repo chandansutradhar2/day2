@@ -31,6 +31,9 @@ var Customer = /** @class */ (function () {
         this.cartItems === undefined ? (this.cartItems = []) : null;
         this.cartItems.push(cartItem);
     };
+    Customer.prototype.getAddress = function () {
+        console.log("Addresses are", this.addresses);
+    };
     Customer.prototype.checkout = function () {
         console.log("total Cart View:", this.cartItems);
     };
@@ -39,9 +42,21 @@ var Customer = /** @class */ (function () {
 // const chandan = new Student();
 // chandan.printMarksheet();
 var custObj = new Customer();
-custObj.addToCart("Mobile X", 18500, 2);
-custObj.addToCart("Mobile Y", 1800, 1);
-custObj.addToCart("Mobile Z", 500, 5);
-custObj.addToCart("Mobile A", 900, 19, false);
-custObj.addToCart("Mobile B", 930, 6);
+custObj.addToCart({
+    price: 899,
+    productName: "Mobile X",
+    qty: 89,
+    inStock: true
+});
 custObj.checkout();
+var add = {
+    bldg: "15",
+    city: "Thane",
+    flatNo: "101",
+    locality: "Mira Road",
+    pincode: "401107",
+    state: "MH",
+    street: "PK Street"
+};
+custObj.addAdress(add);
+custObj.getAddress();

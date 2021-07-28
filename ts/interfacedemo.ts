@@ -34,7 +34,7 @@ interface Address {
   flatNo: string;
   bldg: string;
   street: string;
-  pinCode: string;
+  pincode: string;
   locality: string;
   city: string;
   state: string;
@@ -54,6 +54,10 @@ class Customer {
     this.cartItems === undefined ? (this.cartItems = []) : null;
     this.cartItems.push(cartItem);
   }
+
+  getAddress() {
+    console.log("Addresses are", this.addresses);
+  }
   checkout() {
     console.log("total Cart View:", this.cartItems);
   }
@@ -64,9 +68,22 @@ class Customer {
 
 const custObj = new Customer();
 
-custObj.addToCart("Mobile X", 18500, 2);
-custObj.addToCart("Mobile Y", 1800, 1);
-custObj.addToCart("Mobile Z", 500, 5);
-custObj.addToCart("Mobile A", 900, 19, false);
-custObj.addToCart("Mobile B", 930, 6);
+custObj.addToCart({
+  price: 899,
+  productName: "Mobile X",
+  qty: 89,
+  inStock: true,
+});
 custObj.checkout();
+
+let add: Address = {
+  bldg: "15",
+  city: "Thane",
+  flatNo: "101",
+  locality: "Mira Road",
+  pincode: "401107",
+  state: "MH",
+  street: "PK Street",
+};
+custObj.addAdress(add);
+custObj.getAddress();
