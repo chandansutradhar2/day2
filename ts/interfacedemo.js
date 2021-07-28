@@ -20,6 +20,12 @@ var Student = /** @class */ (function () {
     };
     return Student;
 }());
+var ADDRESS_TYPE;
+(function (ADDRESS_TYPE) {
+    ADDRESS_TYPE["home"] = "home";
+    ADDRESS_TYPE["office"] = "office";
+    ADDRESS_TYPE["other"] = "other";
+})(ADDRESS_TYPE || (ADDRESS_TYPE = {}));
 var Customer = /** @class */ (function () {
     function Customer() {
         this.addresses = [];
@@ -37,10 +43,26 @@ var Customer = /** @class */ (function () {
     Customer.prototype.checkout = function () {
         console.log("total Cart View:", this.cartItems);
     };
+    Customer.prototype.deliverShipment = function (address) {
+        switch (address.addressType) {
+            case "home":
+                console.log("Delivering to customer home");
+                break;
+            case "office":
+                console.log("Delivering to customer office");
+                break;
+            case "other":
+                console.log("Delivering to customer other address");
+                break;
+            default:
+                console.log("Not sure where to deliver");
+                break;
+        }
+    };
     return Customer;
 }());
-// const chandan = new Student();
-// chandan.printMarksheet();
+var chandan = new Student();
+chandan.printMarksheet();
 var custObj = new Customer();
 custObj.addToCart({
     price: 899,
@@ -56,7 +78,9 @@ var add = {
     locality: "Mira Road",
     pincode: "401107",
     state: "MH",
-    street: "PK Street"
+    street: "PK Street",
+    addressType: ADDRESS_TYPE.other
 };
 custObj.addAdress(add);
 custObj.getAddress();
+custObj.deliverShipment(add);

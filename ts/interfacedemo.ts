@@ -38,6 +38,13 @@ interface Address {
   locality: string;
   city: string;
   state: string;
+  addressType: ADDRESS_TYPE;
+}
+
+enum ADDRESS_TYPE {
+  "home" = "home",
+  "office" = "office",
+  "other" = "other",
 }
 
 class Customer {
@@ -61,10 +68,28 @@ class Customer {
   checkout() {
     console.log("total Cart View:", this.cartItems);
   }
+
+  deliverShipment(address: Address) {
+    switch (address.addressType) {
+      case "home":
+        console.log("Delivering to customer home");
+        break;
+      case "office":
+        console.log("Delivering to customer office");
+        break;
+      case "other":
+        console.log("Delivering to customer other address");
+        break;
+      default:
+        console.log("Not sure where to deliver");
+        break;
+    }
+  }
 }
 
-// const chandan = new Student();
-// chandan.printMarksheet();
+const chandan = new Student();
+
+chandan.printMarksheet();
 
 const custObj = new Customer();
 
@@ -84,6 +109,8 @@ let add: Address = {
   pincode: "401107",
   state: "MH",
   street: "PK Street",
+  addressType: ADDRESS_TYPE.other,
 };
 custObj.addAdress(add);
 custObj.getAddress();
+custObj.deliverShipment(add);
