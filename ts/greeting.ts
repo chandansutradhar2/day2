@@ -23,9 +23,23 @@ class Greeting {
 }
 
 function arrayExample() {
-  let products: string[];
+  let products: string[]; //arrayname : datatype [];
+  let marks: number[];
+  let databaseResponse: any[];
+  //init array
+  //at declartion time
+  let prdts: string[] = ["p1", "p2", "p3"];
+  products = ["pr1", "pr2", "pr3"];
+  products.push("p4");
+  products.forEach((ele) => {
+    console.log(ele);
+  });
+
+  console.log(products.length);
+
 }
 
-let obj = new Greeting();
-console.log(obj.wish("night"));
-obj.showType(null);
+// let obj = new Greeting();
+// console.log(obj.wish("night"));
+// obj.showType(null);
+arrayExample();
