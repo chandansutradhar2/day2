@@ -1,21 +1,29 @@
+enum ROLE {
+    "admin" = "admin",
+    "customer"="customer"
+}
+
 interface User {
   firstName: string;
   lastName: string;
-  role: string;
+  role: ROLE;
 }
 // admin, instructor, student
-class SignIn {
-  doLogin(email: string, password: string) {
+class Auth {
+ 
+    login(email: string, password: string) {
     //todo code to login...
     let userObj: User = {
       firstName: "chandan",
       lastName: "naresh",
-      role: "admin",
+      role: ROLE.customer,
     };
     return userObj;
   }
 
-  redirect() {}
+    redirect(role:any) {
+      role=="admin"?console.log('redirecting to admin console..'):console.log('redirecting to customer app')
+  }
 
   showError() {}
 }
@@ -28,6 +36,8 @@ class SignUp {
   showLoading() {}
 }
 
-const obj = new SignIn();
-let result = obj.doLogin("chandan@gmail.com", "Passw0rd");
-console.log(result);
+const obj = new Auth();
+let result = obj.login("chandan@gmail.com", "Passw0rd");
+if (result) {
+    obj.redirect(result.role);
+}

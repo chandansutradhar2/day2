@@ -1,19 +1,26 @@
+var ROLE;
+(function (ROLE) {
+    ROLE["admin"] = "admin";
+    ROLE["customer"] = "customer";
+})(ROLE || (ROLE = {}));
 // admin, instructor, student
-var SignIn = /** @class */ (function () {
-    function SignIn() {
+var Auth = /** @class */ (function () {
+    function Auth() {
     }
-    SignIn.prototype.doLogin = function (email, password) {
+    Auth.prototype.login = function (email, password) {
         //todo code to login...
         var userObj = {
             firstName: "chandan",
             lastName: "naresh",
-            role: "admin"
+            role: ROLE.customer
         };
         return userObj;
     };
-    SignIn.prototype.redirect = function () { };
-    SignIn.prototype.showError = function () { };
-    return SignIn;
+    Auth.prototype.redirect = function (role) {
+        role == "admin" ? console.log('redirecting to admin console..') : console.log('redirecting to customer app');
+    };
+    Auth.prototype.showError = function () { };
+    return Auth;
 }());
 var SignUp = /** @class */ (function () {
     function SignUp() {
@@ -23,6 +30,8 @@ var SignUp = /** @class */ (function () {
     SignUp.prototype.showLoading = function () { };
     return SignUp;
 }());
-var obj = new SignIn();
-var result = obj.doLogin("chandan@gmail.com", "Passw0rd");
-console.log(result);
+var obj = new Auth();
+var result = obj.login("chandan@gmail.com", "Passw0rd");
+if (result) {
+    obj.redirect(result.role);
+}
