@@ -70,6 +70,15 @@ class Customer {
   }
 
   deliverShipment(address: Address) {
+    //check if it can be delivered or not
+    let deliveryList:  string[] = this.getAllDeliveryPoint();
+    let result=deliveryList.findIndex((code) => {
+      return code == address.pincode
+    });
+
+    console.log(result);
+
+    
     switch (address.addressType) {
       case "home":
         console.log("Delivering to customer home");
@@ -85,6 +94,26 @@ class Customer {
         break;
     }
   }
+
+  isDeliverable() {
+    //todo: communicate with RESTAPI to return true or false
+  }
+
+  getAllDeliveryPoint(): string[] {
+    //code to fetch list from server
+    const pincodes: string[] = [
+      "401101",
+      "401107",
+      "401098",
+      "847473",
+      "766601",
+      "049483",
+    ];
+
+    return pincodes;
+
+    //TODO : fetch list from server - backend API
+  }
 }
 
 const chandan = new Student();
@@ -92,7 +121,6 @@ const chandan = new Student();
 chandan.printMarksheet();
 
 const custObj = new Customer();
-
 custObj.addToCart({
   price: 899,
   productName: "Mobile X",

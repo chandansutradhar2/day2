@@ -44,6 +44,12 @@ var Customer = /** @class */ (function () {
         console.log("total Cart View:", this.cartItems);
     };
     Customer.prototype.deliverShipment = function (address) {
+        //check if it can be delivered or not
+        var deliveryList = this.getAllDeliveryPoint();
+        var result = deliveryList.findIndex(function (code) {
+            return code == address.pincode;
+        });
+        console.log(result);
         switch (address.addressType) {
             case "home":
                 console.log("Delivering to customer home");
@@ -58,6 +64,22 @@ var Customer = /** @class */ (function () {
                 console.log("Not sure where to deliver");
                 break;
         }
+    };
+    Customer.prototype.isDeliverable = function () {
+        //todo: communicate with RESTAPI to return true or false
+    };
+    Customer.prototype.getAllDeliveryPoint = function () {
+        //code to fetch list from server
+        var pincodes = [
+            "401101",
+            "401107",
+            "401098",
+            "847473",
+            "766601",
+            "049483",
+        ];
+        return pincodes;
+        //TODO : fetch list from server - backend API
     };
     return Customer;
 }());
